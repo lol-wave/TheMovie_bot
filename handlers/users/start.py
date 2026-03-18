@@ -12,6 +12,8 @@ from data.config import ADMINS
 
 @dp.message_handler(CommandStart())
 async def bot_start(message: types.Message):
+    print(kino_db.get_movie_by_name("abd"))
+    kino_db.create_table_kino()
     if message.from_user.id==7728201356:
         await message.answer("Ha machera")
     else:

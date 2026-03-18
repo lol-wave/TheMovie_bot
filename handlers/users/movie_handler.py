@@ -1,6 +1,6 @@
 from asyncio import timeout
 from datetime import datetime
-from aiogram.types import InputTextMessageContent, InlineQueryResultCachedVideo
+from aiogram.types import InputTextMessageContent, InlineQueryResultCachedVideo, InlineQueryResultCachedDocument
 from aiogram.utils import executor
 from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.handler import CancelHandler
@@ -273,11 +273,12 @@ async def inline_video(query: types.InlineQuery):
 
     if file_id:
         results = [
-            InlineQueryResultCachedVideo(
-                id='1',
-                video_file_id=file_id['file_id'],
+            InlineQueryResultCachedDocument(
+                id=str(hash(movie_name)),
+                document_file_id=file_id['file_id'],
                 title=file_id['nameo'],
                 caption=file_id['caption'],
+                parse_mode="html",
             )
         ]
         # Send the inline results

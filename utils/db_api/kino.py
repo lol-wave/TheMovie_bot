@@ -9,7 +9,6 @@ class KinoDatabase(Database):
     def create_table_kino(self):
         sql="""
             CREATE TABLE IF NOT EXISTS Kino(
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
                 post_id INTEGER PRIMARY KEY AUTOINCREMENT,
                 file_id VARCHAR(3000) NOT NULL,
                 caption TEXT NULL,
